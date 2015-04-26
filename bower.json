@@ -1,0 +1,20 @@
+{
+  "name": "markdown-mathjax-sandbox",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mucsi96/markdown-mathjax-sandbox",
+  "authors": [
+    "Igor Mucsicska <mucsi_96@yahoo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "MathJax": "~2.5.1",
+    "marked": "~0.3.3"
+  }
+}
