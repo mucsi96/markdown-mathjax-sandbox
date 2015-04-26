@@ -1,7 +1,7 @@
-#markdown-mathjax {
+.markdown-mathjax {
     display: none;
 }
 
-#markdown-mathjax.ready {
+.markdown-mathjax.ready {
     display: block;
 }

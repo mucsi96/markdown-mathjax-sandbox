@@ -1,7 +1,15 @@
 (function() {
     'use strict';
 
-    var container = document.getElementById('markdown-mathjax');
+    function getSections() {
+        var sections = [];
+
+         [].forEach.call(document.querySelectorAll('.markdown-mathjax'), function (section) {
+            sections.push(section);
+         });
+
+         return sections;
+    }
 
     marked.setOptions({
         renderer: new marked.Renderer(),
@@ -14,8 +22,8 @@
         smartypants: false
     });
 
-    function escape() {
-        container.innerHTML = container.innerHTML
+    function escape(section) {
+        section.innerHTML = section.innerHTML
             .replace(/&(?!#?\w+;)/g)
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
@@ -23,16 +31,23 @@
             .replace(/'/g, '&#39;');
     }
 
-    function runMarkDown() {
-        var text = container.innerHTML;
+    function runMarkDown(section) {
+        var text = section.innerHTML;
 
         text = text.replace(/^&gt;/mg, '>');
-        container.innerHTML = marked(text);
+        section.innerHTML = marked(text);
     }
 
-    function markReady() {
-        container.classList.add('ready');
+    function markReady(section) {
+        section.classList.add('ready');
     }
 
-    MathJax.Hub.Queue([escape], ["Typeset", MathJax.Hub, container], [runMarkDown], [markReady]);
+    getSections().forEach(function(section) {
+        console.log()
+        MathJax.Hub.Queue(
+            [escape, section],
+            ["Typeset", MathJax.Hub, section],
+            [runMarkDown, section],
+            [markReady, section]);
+    });
 })();
