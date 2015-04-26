@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Markdown and MathJax sandbox</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="markdown-mathjax">
+# Test
+
+$ \lim\limits_{x \to \infty} \exp(-x) = 0 $
+
+$A_G A_\Gamma$
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    skipStartupTypeset: true,
+    showProcessingMessages: false,
+    tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
+    TeX: { equationNumbers: {autoNumber: "AMS"} }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="lib/marked.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>
